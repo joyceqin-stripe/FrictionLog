@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A395FE902C7664E90008F0F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395FE8F2C7664E90008F0F1 /* AppDelegate.swift */; };
+		A395FE922C7664E90008F0F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395FE912C7664E90008F0F1 /* SceneDelegate.swift */; };
+		A395FE942C7664E90008F0F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395FE932C7664E90008F0F1 /* ViewController.swift */; };
+		A395FE972C7664E90008F0F1 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A395FE962C7664E90008F0F1 /* Base */; };
+		A395FE992C7664EA0008F0F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A395FE982C7664EA0008F0F1 /* Assets.xcassets */; };
+		A395FE9C2C7664EA0008F0F1 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A395FE9B2C7664EA0008F0F1 /* Base */; };
+		A395FEA72C7664EA0008F0F1 /* FrictionLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395FEA62C7664EA0008F0F1 /* FrictionLogTests.swift */; };
+		A395FEB12C7664EA0008F0F1 /* FrictionLogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395FEB02C7664EA0008F0F1 /* FrictionLogUITests.swift */; };
+		A395FEB32C7664EA0008F0F1 /* FrictionLogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395FEB22C7664EA0008F0F1 /* FrictionLogUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A395FEA32C7664EA0008F0F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A395FE842C7664E90008F0F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A395FE8B2C7664E90008F0F1;
+			remoteInfo = FrictionLog;
+		};
+		A395FEAD2C7664EA0008F0F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A395FE842C7664E90008F0F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A395FE8B2C7664E90008F0F1;
+			remoteInfo = FrictionLog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A395FE8C2C7664E90008F0F1 /* FrictionLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrictionLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A395FE8F2C7664E90008F0F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A395FE912C7664E90008F0F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A395FE932C7664E90008F0F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A395FE962C7664E90008F0F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A395FE982C7664EA0008F0F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A395FE9B2C7664EA0008F0F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A395FE9D2C7664EA0008F0F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A395FEA22C7664EA0008F0F1 /* FrictionLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A395FEA62C7664EA0008F0F1 /* FrictionLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrictionLogTests.swift; sourceTree = "<group>"; };
+		A395FEAC2C7664EA0008F0F1 /* FrictionLogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrictionLogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A395FEB02C7664EA0008F0F1 /* FrictionLogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrictionLogUITests.swift; sourceTree = "<group>"; };
+		A395FEB22C7664EA0008F0F1 /* FrictionLogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrictionLogUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A395FE892C7664E90008F0F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A395FE9F2C7664EA0008F0F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A395FEA92C7664EA0008F0F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A395FE832C7664E90008F0F1 = {
+			isa = PBXGroup;
+			children = (
+				A395FE8E2C7664E90008F0F1 /* FrictionLog */,
+				A395FEA52C7664EA0008F0F1 /* FrictionLogTests */,
+				A395FEAF2C7664EA0008F0F1 /* FrictionLogUITests */,
+				A395FE8D2C7664E90008F0F1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A395FE8D2C7664E90008F0F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A395FE8C2C7664E90008F0F1 /* FrictionLog.app */,
+				A395FEA22C7664EA0008F0F1 /* FrictionLogTests.xctest */,
+				A395FEAC2C7664EA0008F0F1 /* FrictionLogUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A395FE8E2C7664E90008F0F1 /* FrictionLog */ = {
+			isa = PBXGroup;
+			children = (
+				A395FE8F2C7664E90008F0F1 /* AppDelegate.swift */,
+				A395FE912C7664E90008F0F1 /* SceneDelegate.swift */,
+				A395FE932C7664E90008F0F1 /* ViewController.swift */,
+				A395FE952C7664E90008F0F1 /* Main.storyboard */,
+				A395FE982C7664EA0008F0F1 /* Assets.xcassets */,
+				A395FE9A2C7664EA0008F0F1 /* LaunchScreen.storyboard */,
+				A395FE9D2C7664EA0008F0F1 /* Info.plist */,
+			);
+			path = FrictionLog;
+			sourceTree = "<group>";
+		};
+		A395FEA52C7664EA0008F0F1 /* FrictionLogTests */ = {
+			isa = PBXGroup;
+			children = (
+				A395FEA62C7664EA0008F0F1 /* FrictionLogTests.swift */,
+			);
+			path = FrictionLogTests;
+			sourceTree = "<group>";
+		};
+		A395FEAF2C7664EA0008F0F1 /* FrictionLogUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A395FEB02C7664EA0008F0F1 /* FrictionLogUITests.swift */,
+				A395FEB22C7664EA0008F0F1 /* FrictionLogUITestsLaunchTests.swift */,
+			);
+			path = FrictionLogUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A395FE8B2C7664E90008F0F1 /* FrictionLog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A395FEB62C7664EA0008F0F1 /* Build configuration list for PBXNativeTarget "FrictionLog" */;
+			buildPhases = (
+				A395FE882C7664E90008F0F1 /* Sources */,
+				A395FE892C7664E90008F0F1 /* Frameworks */,
+				A395FE8A2C7664E90008F0F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FrictionLog;
+			productName = FrictionLog;
+			productReference = A395FE8C2C7664E90008F0F1 /* FrictionLog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A395FEA12C7664EA0008F0F1 /* FrictionLogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A395FEB92C7664EA0008F0F1 /* Build configuration list for PBXNativeTarget "FrictionLogTests" */;
+			buildPhases = (
+				A395FE9E2C7664EA0008F0F1 /* Sources */,
+				A395FE9F2C7664EA0008F0F1 /* Frameworks */,
+				A395FEA02C7664EA0008F0F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A395FEA42C7664EA0008F0F1 /* PBXTargetDependency */,
+			);
+			name = FrictionLogTests;
+			productName = FrictionLogTests;
+			productReference = A395FEA22C7664EA0008F0F1 /* FrictionLogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A395FEAB2C7664EA0008F0F1 /* FrictionLogUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A395FEBC2C7664EA0008F0F1 /* Build configuration list for PBXNativeTarget "FrictionLogUITests" */;
+			buildPhases = (
+				A395FEA82C7664EA0008F0F1 /* Sources */,
+				A395FEA92C7664EA0008F0F1 /* Frameworks */,
+				A395FEAA2C7664EA0008F0F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A395FEAE2C7664EA0008F0F1 /* PBXTargetDependency */,
+			);
+			name = FrictionLogUITests;
+			productName = FrictionLogUITests;
+			productReference = A395FEAC2C7664EA0008F0F1 /* FrictionLogUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A395FE842C7664E90008F0F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					A395FE8B2C7664E90008F0F1 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					A395FEA12C7664EA0008F0F1 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = A395FE8B2C7664E90008F0F1;
+					};
+					A395FEAB2C7664EA0008F0F1 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = A395FE8B2C7664E90008F0F1;
+					};
+				};
+			};
+			buildConfigurationList = A395FE872C7664E90008F0F1 /* Build configuration list for PBXProject "FrictionLog" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A395FE832C7664E90008F0F1;
+			productRefGroup = A395FE8D2C7664E90008F0F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A395FE8B2C7664E90008F0F1 /* FrictionLog */,
+				A395FEA12C7664EA0008F0F1 /* FrictionLogTests */,
+				A395FEAB2C7664EA0008F0F1 /* FrictionLogUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A395FE8A2C7664E90008F0F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A395FE992C7664EA0008F0F1 /* Assets.xcassets in Resources */,
+				A395FE9C2C7664EA0008F0F1 /* Base in Resources */,
+				A395FE972C7664E90008F0F1 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A395FEA02C7664EA0008F0F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A395FEAA2C7664EA0008F0F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A395FE882C7664E90008F0F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A395FE942C7664E90008F0F1 /* ViewController.swift in Sources */,
+				A395FE902C7664E90008F0F1 /* AppDelegate.swift in Sources */,
+				A395FE922C7664E90008F0F1 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A395FE9E2C7664EA0008F0F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A395FEA72C7664EA0008F0F1 /* FrictionLogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A395FEA82C7664EA0008F0F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A395FEB12C7664EA0008F0F1 /* FrictionLogUITests.swift in Sources */,
+				A395FEB32C7664EA0008F0F1 /* FrictionLogUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A395FEA42C7664EA0008F0F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A395FE8B2C7664E90008F0F1 /* FrictionLog */;
+			targetProxy = A395FEA32C7664EA0008F0F1 /* PBXContainerItemProxy */;
+		};
+		A395FEAE2C7664EA0008F0F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A395FE8B2C7664E90008F0F1 /* FrictionLog */;
+			targetProxy = A395FEAD2C7664EA0008F0F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A395FE952C7664E90008F0F1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A395FE962C7664E90008F0F1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A395FE9A2C7664EA0008F0F1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A395FE9B2C7664EA0008F0F1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A395FEB42C7664EA0008F0F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A395FEB52C7664EA0008F0F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A395FEB72C7664EA0008F0F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FrictionLog/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = stripe.FrictionLog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A395FEB82C7664EA0008F0F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FrictionLog/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = stripe.FrictionLog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A395FEBA2C7664EA0008F0F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = stripe.FrictionLogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FrictionLog.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FrictionLog";
+			};
+			name = Debug;
+		};
+		A395FEBB2C7664EA0008F0F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = stripe.FrictionLogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FrictionLog.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FrictionLog";
+			};
+			name = Release;
+		};
+		A395FEBD2C7664EA0008F0F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = stripe.FrictionLogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FrictionLog;
+			};
+			name = Debug;
+		};
+		A395FEBE2C7664EA0008F0F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = stripe.FrictionLogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FrictionLog;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A395FE872C7664E90008F0F1 /* Build configuration list for PBXProject "FrictionLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A395FEB42C7664EA0008F0F1 /* Debug */,
+				A395FEB52C7664EA0008F0F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A395FEB62C7664EA0008F0F1 /* Build configuration list for PBXNativeTarget "FrictionLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A395FEB72C7664EA0008F0F1 /* Debug */,
+				A395FEB82C7664EA0008F0F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A395FEB92C7664EA0008F0F1 /* Build configuration list for PBXNativeTarget "FrictionLogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A395FEBA2C7664EA0008F0F1 /* Debug */,
+				A395FEBB2C7664EA0008F0F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A395FEBC2C7664EA0008F0F1 /* Build configuration list for PBXNativeTarget "FrictionLogUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A395FEBD2C7664EA0008F0F1 /* Debug */,
+				A395FEBE2C7664EA0008F0F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A395FE842C7664E90008F0F1 /* Project object */;
+}
