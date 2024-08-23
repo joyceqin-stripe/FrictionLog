@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StripeCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    // This method handles opening custom URL schemes (for example, "your-app://stripe-redirect")
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        let stripeHandled = StripeAPI.handleURLCallback(with: url)
+        if (stripeHandled) {
+            return true
+        } else {
+            // This was not a Stripe url – handle the URL normally as you would
+        }
+        return false
     }
 
 
