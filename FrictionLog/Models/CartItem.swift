@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct CartItem {
+struct CartItem: Codable {
     var product: Product
     var price: Price
     var quantity: Int

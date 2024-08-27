@@ -14,24 +14,31 @@ class CheckoutViewController: UIViewController {
     private let checkoutButton = UIButton()
     var paymentSheet: PaymentSheet?
     let backendCheckoutUrl = URL(string: "https://protective-verdant-ping.glitch.me/checkout")!
-    
+    let postPaymentUrl = URL(string: "https://protective-verdant-ping.glitch.me/post-payment")!
+    private var cartItems: [CartItem] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        cartItems = ShopData.cart.map{ key, value in (value) }
         setupCartLabel()
         setupTableView()
         setupCheckoutButton()
         setupLayout()
         view.backgroundColor = Constants.background
         tableView.backgroundColor = Constants.background
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        cartItems = ShopData.cart.map{ key, value in (value) }
         checkoutEndpoint()
-        
+        tableView.reloadData()
     }
     
     private func checkoutEndpoint() {
         // MARK: Fetch the PaymentIntent client secret, Ephemeral Key secret, Customer ID, and publishable key
         var request = URLRequest(url: backendCheckoutUrl)
         request.httpMethod = "POST"
-        request.httpBody = Product.toJSON(product: MockData.products[0])
+        request.httpBody = Util.toJSON(codable: cartItems)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let task = URLSession.shared.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
             guard let data = data,
@@ -48,8 +55,9 @@ class CheckoutViewController: UIViewController {
             STPAPIClient.shared.publishableKey = publishableKey
             // MARK: Create a PaymentSheet instance
             var configuration = PaymentSheet.Configuration()
-            configuration.returnURL = "https://protective-verdant-ping.glitch.me"
-            configuration.merchantDisplayName = "Example, Inc."
+            configuration.returnURL = "stripe.FrictionLog://stripe-redirect"
+            configuration.merchantDisplayName = "Survivor Texas"
+            configuration.style = .alwaysDark
             configuration.customer = .init(id: customerId, ephemeralKeySecret: customerEphemeralKeySecret)
             // Set `allowsDelayedPaymentMethods` to true if your business handles
             // delayed notification payment methods like US bank accounts.
@@ -73,14 +81,14 @@ class CheckoutViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = Constants.padding * 2 + Constants.productImageHeight
+        tableView.rowHeight = Constants.padding * 2 + Constants.productImageDimension
         view.addSubview(tableView)
     }
     
     private func setupCheckoutButton() {
         checkoutButton.setTitle("Checkout", for: .normal)
         checkoutButton.addTarget(self, action: #selector(checkoutTapped), for: .touchUpInside)
-        checkoutButton.backgroundColor = .systemBlue
+        checkoutButton.backgroundColor = Constants.accentColor
         checkoutButton.setTitleColor(.white, for: .normal)
         checkoutButton.layer.cornerRadius = 8
         checkoutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -116,26 +124,38 @@ class CheckoutViewController: UIViewController {
             case .failed(let error):
                 print("Payment failed: \(error)")
             }
+            
         }
     }
 }
 
-extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
+extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource, ProductCellDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cartLabel.text = "Cart (\(MockData.cartItems.count))"
-        return MockData.cartItems.count
+        let count = ShopData.cart.count
+        if count == 0 {
+            checkoutButton.isEnabled = false
+        }
+        return ShopData.cart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
-        let cartItem = MockData.cartItems[indexPath.row]
+        let cartItem = cartItems[indexPath.row]
         cell.configure(with: cartItem)
+        cell.delegate = self
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+    func didTapProductDetails(in cell: ProductCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            let selectedItem = cartItems[indexPath.row]
+            let productDetailsViewController = ProductDetailsViewController()
+            productDetailsViewController.product = selectedItem.product
+            productDetailsViewController.price = selectedItem.price
+            productDetailsViewController.quantity = selectedItem.quantity
+            navigationController?.pushViewController(productDetailsViewController, animated: true)
+        }
     }
 }
 

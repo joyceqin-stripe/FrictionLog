@@ -60,18 +60,7 @@ struct Product: Codable {
         case type, unitLabel = "unit_label"
         case updated, url
     }
-    static func toJSON(product: Product) -> Data {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted // Optional: for human-readable JSON
-        
-        do {
-            let jsonData = try encoder.encode(product)
-            return jsonData
-        } catch {
-            print("Error encoding Product: \(error.localizedDescription)")
-            return Data()
-        }
-    }
+    
 }
 
 // MARK: - MarketingFeature Struct

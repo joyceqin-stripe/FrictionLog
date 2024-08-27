@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 struct Constants {
-    static let productImageHeight = CGFloat(128)
+    static let productImageDimension = CGFloat(128)
     static let padding = CGFloat(16)
     static let cornerRadius = CGFloat(24)
     static let background = UIColor(hexString: "#121212")

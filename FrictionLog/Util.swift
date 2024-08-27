@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 struct Util {
-    static func loadImage(from urlString: String, imageView: UIImageView) {
+    static func loadImage(from urlString: String) {
         // Ensure the URL is valid
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
@@ -32,10 +32,23 @@ struct Util {
             
             // Update the UI on the main thread
             DispatchQueue.main.async {
-                imageView.image = image
+                ImageData.images.updateValue(image, forKey: urlString)
             }
         }
         
         task.resume() // Start the data task
+    }
+    
+    static func toJSON(codable: Codable) -> Data {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted // Optional: for human-readable JSON
+        
+        do {
+            let jsonData = try encoder.encode(codable)
+            return jsonData
+        } catch {
+            print("Error encoding: \(error.localizedDescription)")
+            return Data()
+        }
     }
 }

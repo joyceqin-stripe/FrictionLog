@@ -33,11 +33,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [watchNav, shopNav, checkoutNav]
-        tabBarController.tabBar.tintColor = Constants.focusColor // Change selected tab color
+        tabBarController.tabBar.tintColor = Constants.accentColor // Change selected tab color
         tabBarController.tabBar.unselectedItemTintColor = Constants.blurColor
         // Set the shadow properties of the navigation bar
         let shadowPath = UIBezierPath(rect: CGRect(x: 0, y: -8, width: tabBarController.tabBar.bounds.width, height: 1))
-        
         tabBarController.tabBar.layer.shadowColor = UIColor.lightGray.cgColor
         tabBarController.tabBar.layer.shadowOffset = CGSize(width: 0, height: 1)
         tabBarController.tabBar.layer.shadowOpacity = 0.5
@@ -53,6 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Set the tab bar controller as the root view controller
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        ShopData.getProducts()
     }
     
     // This method handles opening custom URL schemes (for example, "your-app://stripe-redirect")

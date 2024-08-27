@@ -38,9 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (stripeHandled) {
             return true
         } else {
-            // This was not a Stripe url – handle the URL normally as you would
+            return true
         }
-        return false
     }
 
 
