@@ -151,7 +151,7 @@ class ProductDetailsViewController: UIViewController {
     
     private func configure() {
         let currentProduct = product ?? MockData.product
-        productImageView.image = ImageData.images[currentProduct.images[0]]
+        productImageView.image = ImageData.productThumbnails[currentProduct.images[0]]
         productNameLabel.text = currentProduct.name
         productPriceLabel.text = "$\(String(format: "%.2f", Double((price ?? MockData.price).unitAmount!)/100.0))"
         if currentProduct.description != nil {

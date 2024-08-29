@@ -39,9 +39,12 @@
 		A3C84EFB2C7D713000D16788 /* QuantityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84EFA2C7D713000D16788 /* QuantityController.swift */; };
 		A3C84EFD2C7D779400D16788 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84EFC2C7D779400D16788 /* Video.swift */; };
 		A3C84EFF2C7D784C00D16788 /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84EFE2C7D784C00D16788 /* VideoData.swift */; };
-		A3C84F012C7D824600D16788 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84F002C7D824600D16788 /* VideoCell.swift */; };
+		A3C84F012C7D824600D16788 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84F002C7D824600D16788 /* EpisodeCell.swift */; };
 		A3C84F032C7D839600D16788 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84F022C7D839600D16788 /* ImageData.swift */; };
 		A3C84F052C7E37EC00D16788 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84F042C7E37EC00D16788 /* Episode.swift */; };
+		A3C84F072C7E5ABA00D16788 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84F062C7E5ABA00D16788 /* Season.swift */; };
+		A3C84F092C7E5B2200D16788 /* SeasonsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84F082C7E5B2200D16788 /* SeasonsData.swift */; };
+		A3C84F0B2C7FD31F00D16788 /* DropdownSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C84F0A2C7FD31F00D16788 /* DropdownSelector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,9 +93,12 @@
 		A3C84EFA2C7D713000D16788 /* QuantityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityController.swift; sourceTree = "<group>"; };
 		A3C84EFC2C7D779400D16788 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		A3C84EFE2C7D784C00D16788 /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
-		A3C84F002C7D824600D16788 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		A3C84F002C7D824600D16788 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		A3C84F022C7D839600D16788 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		A3C84F042C7E37EC00D16788 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		A3C84F062C7E5ABA00D16788 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		A3C84F082C7E5B2200D16788 /* SeasonsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsData.swift; sourceTree = "<group>"; };
+		A3C84F0A2C7FD31F00D16788 /* DropdownSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSelector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,9 +162,10 @@
 				A395FEDB2C7685550008F0F1 /* SourceData */,
 				A395FED92C7683360008F0F1 /* ProductCell.swift */,
 				A395FEE62C77FA9E0008F0F1 /* ShopViewController.swift */,
+				A3C84F0A2C7FD31F00D16788 /* DropdownSelector.swift */,
 				A3C84EFA2C7D713000D16788 /* QuantityController.swift */,
 				A395FEE02C77D7960008F0F1 /* Util.swift */,
-				A3C84F002C7D824600D16788 /* VideoCell.swift */,
+				A3C84F002C7D824600D16788 /* EpisodeCell.swift */,
 				A395FEE82C77FB230008F0F1 /* CheckoutViewController.swift */,
 				A395FEDE2C76B5810008F0F1 /* Constants.swift */,
 				A395FE912C7664E90008F0F1 /* SceneDelegate.swift */,
@@ -196,6 +203,7 @@
 				A395FED32C766B130008F0F1 /* Product.swift */,
 				A395FEE22C77DA290008F0F1 /* Price.swift */,
 				A395FED72C76810C0008F0F1 /* CartItem.swift */,
+				A3C84F062C7E5ABA00D16788 /* Season.swift */,
 				A3C84F042C7E37EC00D16788 /* Episode.swift */,
 				A3C84EFC2C7D779400D16788 /* Video.swift */,
 			);
@@ -207,6 +215,7 @@
 			children = (
 				A395FEF42C7859720008F0F1 /* ShopData.swift */,
 				A3C84EFE2C7D784C00D16788 /* VideoData.swift */,
+				A3C84F082C7E5B2200D16788 /* SeasonsData.swift */,
 				A3C84F022C7D839600D16788 /* ImageData.swift */,
 				A395FEDC2C76856D0008F0F1 /* MockData.swift */,
 			);
@@ -360,9 +369,11 @@
 			files = (
 				A3C84F032C7D839600D16788 /* ImageData.swift in Sources */,
 				A395FE942C7664E90008F0F1 /* ViewController.swift in Sources */,
+				A3C84F092C7E5B2200D16788 /* SeasonsData.swift in Sources */,
 				A395FEE12C77D7960008F0F1 /* Util.swift in Sources */,
 				A395FEF52C7859720008F0F1 /* ShopData.swift in Sources */,
 				A395FEFC2C7928830008F0F1 /* ProductDetailsViewController.swift in Sources */,
+				A3C84F0B2C7FD31F00D16788 /* DropdownSelector.swift in Sources */,
 				A395FEE72C77FA9E0008F0F1 /* ShopViewController.swift in Sources */,
 				A395FE902C7664E90008F0F1 /* AppDelegate.swift in Sources */,
 				A395FEE92C77FB230008F0F1 /* CheckoutViewController.swift in Sources */,
@@ -370,13 +381,14 @@
 				A395FEE32C77DA290008F0F1 /* Price.swift in Sources */,
 				A395FED42C766B130008F0F1 /* Product.swift in Sources */,
 				A395FEDA2C7683360008F0F1 /* ProductCell.swift in Sources */,
-				A3C84F012C7D824600D16788 /* VideoCell.swift in Sources */,
+				A3C84F012C7D824600D16788 /* EpisodeCell.swift in Sources */,
 				A3C84F052C7E37EC00D16788 /* Episode.swift in Sources */,
 				A395FED82C76810C0008F0F1 /* CartItem.swift in Sources */,
 				A395FEDD2C76856D0008F0F1 /* MockData.swift in Sources */,
 				A3C84EFD2C7D779400D16788 /* Video.swift in Sources */,
 				A3C84EFF2C7D784C00D16788 /* VideoData.swift in Sources */,
 				A395FE922C7664E90008F0F1 /* SceneDelegate.swift in Sources */,
+				A3C84F072C7E5ABA00D16788 /* Season.swift in Sources */,
 				A395FEDF2C76B5810008F0F1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

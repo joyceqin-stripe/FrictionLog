@@ -13,7 +13,7 @@ struct Constants {
     static let padding = CGFloat(16)
     static let cornerRadius = CGFloat(24)
     static let background = UIColor(hexString: "#121212")
-    static let secondaryBackground = UIColor.white.withAlphaComponent(0.1)
+    static let secondaryBackground = UIColor(hexString: "#282828")
     static let focusColor = UIColor.white
     static let blurColor = UIColor.lightGray
     static let textColor = UIColor.lightText

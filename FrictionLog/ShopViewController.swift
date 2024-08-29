@@ -12,6 +12,9 @@ class ShopViewController: UIViewController {
 //    private let searchBar = UISearchBar()
     private let productsLabel = UILabel()
     private let tableView = UITableView()
+    private var products: [Product] = []
+    private var prices: [String:Price] = [:]
+    private var images: [String:UIImage] = [:]
     
     let backendProductsUrl = URL(string: "https://protective-verdant-ping.glitch.me/products")!
     let backendPricesBaseUrl = "https://protective-verdant-ping.glitch.me/prices"
@@ -24,11 +27,23 @@ class ShopViewController: UIViewController {
         setupLayout()
         view.backgroundColor = Constants.background
         tableView.backgroundColor = Constants.background
+        ShopData.getProducts(completion: handleProducts)
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleImageLoad(_:)), name: .didLoadProductThumbnail, object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func handleProducts(products: [Product], prices: [String:Price], images: [String:UIImage]) {
+        self.products = products
+        self.prices = prices
+        self.images = images
+        self.tableView.reloadData()
+    }
+    
+    @objc private func handleImageLoad(_ notification: Notification) {
         tableView.reloadData()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
 //    private func setupSearchBar() {
@@ -72,8 +87,6 @@ class ShopViewController: UIViewController {
         ])
     }
     
-    
-    
 }
 extension ShopViewController : UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, ProductCellDelegate {
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -89,14 +102,14 @@ extension ShopViewController : UISearchBarDelegate, UITableViewDelegate, UITable
 //    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ShopData.products.count
+        return self.products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
-        let product = ShopData.products[indexPath.row]
+        let product = self.products[indexPath.row]
         cell.delegate = self
-        cell.configure(with: product, price: ShopData.prices[product.defaultPrice] ?? MockData.price)
+        cell.configure(with: product, price: self.prices[product.defaultPrice] ?? MockData.price, image: self.images[product.images[0]]!)
         return cell
     }
     
@@ -106,10 +119,10 @@ extension ShopViewController : UISearchBarDelegate, UITableViewDelegate, UITable
     
     func didTapProductDetails(in cell: ProductCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            let selectedItem = ShopData.products[indexPath.row]
+            let selectedItem = self.products[indexPath.row]
             let productDetailsViewController = ProductDetailsViewController()
             productDetailsViewController.product = selectedItem
-            productDetailsViewController.price = ShopData.prices[selectedItem.defaultPrice]
+            productDetailsViewController.price = self.prices[selectedItem.defaultPrice]
             productDetailsViewController.quantity = ShopData.cart[selectedItem.id]?.quantity
             navigationController?.pushViewController(productDetailsViewController, animated: true)
         }

@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 struct Util {
-    static func loadImage(from urlString: String) {
+    static func loadImage(from urlString: String, completion: @escaping (UIImage) -> ()) {
         // Ensure the URL is valid
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
@@ -32,7 +32,17 @@ struct Util {
             
             // Update the UI on the main thread
             DispatchQueue.main.async {
-                ImageData.images.updateValue(image, forKey: urlString)
+                ImageData.images[urlString] = image
+                completion(image)
+//                if episodeThumbnail {
+//                    ImageData.episodeThumbnails.updateValue(image, forKey: urlString)
+//                    NotificationCenter.default.post(name: .didLoadEpisodeThumbnail, object: nil, userInfo: nil)
+//                }
+//                else {
+//                    ImageData.productThumbnails.updateValue(image, forKey: urlString)
+//                    NotificationCenter.default.post(name: .didLoadProductThumbnail, object: nil, userInfo: nil)
+//                }
+                
             }
         }
         

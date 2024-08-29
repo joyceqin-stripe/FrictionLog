@@ -10,25 +10,47 @@ import StripePaymentSheet
 
 class ViewController: UIViewController {
     private let titleLabel = UILabel()
-    private let tableView = UITableView()
+//    private let seasonDropdownButton = UIButton()
+//    private let seasonsDropdownTableView = UITableView()
+    private var seasonsDropdownSelector: DropdownSelector?
+    private let episodesTableView = UITableView()
+    private let seasonSelector = UIPickerView()
+    private var isPickerVisible = false
+    private var seasons: [Int:Season] = [:]
+    private var season: Int = 1
     // Replace with your actual channel ID and API key
     private let channelId = "UC-I2gENMqpajEe8LVxjCohg"
     private let apiKey = "AIzaSyAca-PL7QPgVsNVUJPcVgNpikaJaucu72g"
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.background
+        VideoData.fetchVideos(from: channelId, apiKey: apiKey, completion: handleVideos)
+        
+    }
+    
+    private func handleVideos(seasons: [Int:Season]) {
+        self.seasons = seasons
+        let options = self.seasons.map { key, _ in
+            "Season \(key)"
+        }
+        print(options)
+        seasonsDropdownSelector = DropdownSelector(options: options)
+        seasonsDropdownSelector!.translatesAutoresizingMaskIntoConstraints = false
         setupTitleLabel()
-        setupTableView()
+        setupEpisodesTableView()
+        view.addSubview(seasonsDropdownSelector!)
         setupLayout()
-        fetchVideos(from: channelId, apiKey: apiKey)
+//        self.seasonSelector.reloadAllComponents()
+//        self.episodesTableView.reloadData()
+        
     }
     
     private func setupTitleLabel() {
         titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        if let customFont = UIFont(name: "Survivant", size: 48) {
+        if let customFont = UIFont(name: "Survivant", size: 36) {
             titleLabel.font = customFont // Replace with your custom font
         } else {
-            titleLabel.font = UIFont.systemFont(ofSize: 48, weight: .bold)
+            titleLabel.font = UIFont.systemFont(ofSize: 36, weight: .bold)
             print("Custom font not found. Using system font instead.")
         }
         titleLabel.numberOfLines = 0
@@ -39,84 +61,114 @@ class ViewController: UIViewController {
         view.addSubview(titleLabel)
     }
     
-    private func setupTableView() {
-        tableView.register(VideoCell.self, forCellReuseIdentifier: "VideoCell")
-        tableView.backgroundColor = Constants.background
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.isUserInteractionEnabled = true // Make sure user interaction is enabled
-        tableView.rowHeight = Constants.padding * 2 + Constants.productImageDimension
-        view.addSubview(tableView)
+//    private func setupSeasonDropdownButton() {
+//        // Configure the button with a title and down arrow
+//        seasonDropdownButton.setTitle("Season \(self.season)", for: .normal)
+//        seasonDropdownButton.setImage(UIImage(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate), for: .normal)
+//        seasonDropdownButton.tintColor = Constants.textColor
+//        seasonDropdownButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+//        seasonDropdownButton.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        view.addSubview(seasonDropdownButton)
+//        
+//    }
+    
+//    private func setupPickerView() {
+//        seasonSelector.translatesAutoresizingMaskIntoConstraints = false
+//        seasonSelector.delegate = self
+//        seasonSelector.dataSource = self
+//        seasonSelector.isHidden = !isPickerVisible
+//        seasonSelector.setValue(Constants.textColor, forKey: "textColor")
+//        seasonSelector.backgroundColor = .systemFill
+//        view.addSubview(seasonSelector)
+//        NSLayoutConstraint.activate([
+//            seasonSelector.topAnchor.constraint(equalTo: seasonDropdownButton.bottomAnchor, constant: Constants.padding),
+//            seasonSelector.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.padding),
+//            seasonSelector.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.padding),
+//        ])
+//    }
+//    
+//    private func setupSeasonsDropdownTableView() {
+//        seasonsDropdownTableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+//        seasonsDropdownTableView.backgroundColor = Constants.background
+//        seasonsDropdownTableView.translatesAutoresizingMaskIntoConstraints = false
+//        seasonsDropdownTableView.dataSource = self
+//        seasonsDropdownTableView.delegate = self
+//        seasonsDropdownTableView.isUserInteractionEnabled = true
+//        seasonsDropdownTableView.rowHeight = UITableView.automaticDimension
+//        view.addSubview(episodesTableView)
+//    }
+    
+    private func setupEpisodesTableView() {
+        episodesTableView.register(EpisodeCell.self, forCellReuseIdentifier: "EpisodeCell")
+        episodesTableView.backgroundColor = Constants.background
+        episodesTableView.translatesAutoresizingMaskIntoConstraints = false
+        episodesTableView.dataSource = self
+        episodesTableView.delegate = self
+        episodesTableView.isUserInteractionEnabled = true // Make sure user interaction is enabled
+        //        tableView.rowHeight = UITableView.automaticDimension
+        episodesTableView.rowHeight = Constants.padding * 2 + Constants.productImageDimension
+        view.addSubview(episodesTableView)
     }
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.padding),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.padding),
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.padding),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.padding),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.padding),
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.padding),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.padding),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            
+            
+            
+            episodesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.padding),
+            episodesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.padding),
+            episodesTableView.topAnchor.constraint(equalTo: seasonsDropdownSelector!.bottomAnchor, constant: Constants.padding),
+            episodesTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.padding/2),
+            
+            seasonsDropdownSelector!.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.padding),
+            seasonsDropdownSelector!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.padding),
+            seasonsDropdownSelector!.heightAnchor.constraint(equalToConstant: 48),
+            seasonsDropdownSelector!.widthAnchor.constraint(equalToConstant: 128),
         ])
     }
     
-    func fetchVideos(from channelId: String, apiKey: String) {
-        let urlString = "https://www.googleapis.com/youtube/v3/search?key=\(apiKey)&channelId=\(channelId)&part=snippet,id&order=date"
+    @objc private func buttonTapped() {
+        // Toggle picker view visibility
+        isPickerVisible.toggle()
+        seasonSelector.isHidden = !isPickerVisible
         
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error fetching videos: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("No data returned")
-                return
-            }
-            
-            do {
-                // Parse JSON response
-                let videoResponse = try JSONDecoder().decode(VideoResponse.self, from: data)
-                VideoData.videos = videoResponse.items
-                for video in VideoData.videos {
-                    Util.loadImage(from: video.snippet.thumbnails["default"]!.url)
-                }
-                // Update the UI on the main thread
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                
-            } catch {
-                print("Error decoding JSON: \(error)")
-            }
-        }
-        
-        task.resume() // Start the data task
     }
+    
 }
 
-extension ViewController : UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+extension ViewController : UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(VideoData.videos.count)
-        return VideoData.videos.count
+        return self.seasons[season]?.episodes.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
-        let video = VideoData.videos[indexPath.row]
-        cell.configure(with: video)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath) as! EpisodeCell
+        let episode = self.seasons[season]!.episodes[indexPath.row]
+        cell.configure(with: episode, thumbnail: episode.thumbnail)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1 // One column in the picker
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.seasons.count // Number of rows based on the data source
+    }
+    
+    // MARK: - UIPickerViewDelegate Methods
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "Season \(row + 1)"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.season = row + 1
+        episodesTableView.reloadData()
     }
 }
 

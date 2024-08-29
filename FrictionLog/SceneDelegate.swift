@@ -52,7 +52,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Set the tab bar controller as the root view controller
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-        ShopData.getProducts()
     }
     
     // This method handles opening custom URL schemes (for example, "your-app://stripe-redirect")

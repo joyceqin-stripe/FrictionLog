@@ -57,50 +57,40 @@ class ProductCell: UITableViewCell {
         productImageView.clipsToBounds = true
         productImageView.translatesAutoresizingMaskIntoConstraints = false
         productImageView.contentMode = .scaleAspectFill
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewProductDetails))
-        productImageView.addGestureRecognizer(tapGesture)
-        productImageView.isUserInteractionEnabled = true // Make sure user interaction is enabled
         containerView.addSubview(productImageView)
     }
     
     private func setupLabels() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewProductDetails))
         // Set up labels
         productNameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         productNameLabel.numberOfLines = 0
         productNameLabel.translatesAutoresizingMaskIntoConstraints = false
         productNameLabel.textColor = Constants.textColor
-        productNameLabel.addGestureRecognizer(tapGesture)
-        productNameLabel.isUserInteractionEnabled = true // Make sure user interaction is enabled
         quantityLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         quantityLabel.translatesAutoresizingMaskIntoConstraints = false
         quantityLabel.textColor = Constants.textColor
-        quantityLabel.addGestureRecognizer(tapGesture)
-        quantityLabel.isUserInteractionEnabled = true // Make sure user interaction is enabled
         productPriceLabel.font = UIFont.preferredFont(forTextStyle: .body)
         productPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         productPriceLabel.textColor = Constants.textColor
-        productPriceLabel.addGestureRecognizer(tapGesture)
-        productPriceLabel.isUserInteractionEnabled = true // Make sure user interaction is enabled
         containerView.addSubview(productNameLabel)
         containerView.addSubview(quantityLabel)
         containerView.addSubview(productPriceLabel)
     }
-    
-    private func setupAddToCart() {
-        // Set the button image (make sure to add the image to Assets.xcassets)
-        addtoCartButton.setImage(UIImage(systemName: "cart.badge.plus")?.withRenderingMode(.alwaysOriginal), for: .normal) // Using SF Symbols
-        addtoCartButton.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
-        addtoCartButton.translatesAutoresizingMaskIntoConstraints = false
-         // Example size
-        containerView.addSubview(addtoCartButton)
-        NSLayoutConstraint.activate([
-            addtoCartButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.padding),
-            addtoCartButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Constants.padding),
-            addtoCartButton.widthAnchor.constraint(equalToConstant: Constants.padding * 2),
-            addtoCartButton.heightAnchor.constraint(equalToConstant: Constants.padding * 2)
-        ])
-    }
+//    
+//    private func setupAddToCart() {
+//        // Set the button image (make sure to add the image to Assets.xcassets)
+//        addtoCartButton.setImage(UIImage(systemName: "cart.badge.plus")?.withRenderingMode(.alwaysOriginal), for: .normal) // Using SF Symbols
+//        addtoCartButton.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
+//        addtoCartButton.translatesAutoresizingMaskIntoConstraints = false
+//         // Example size
+//        containerView.addSubview(addtoCartButton)
+//        NSLayoutConstraint.activate([
+//            addtoCartButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -Constants.padding),
+//            addtoCartButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Constants.padding),
+//            addtoCartButton.widthAnchor.constraint(equalToConstant: Constants.padding * 2),
+//            addtoCartButton.heightAnchor.constraint(equalToConstant: Constants.padding * 2)
+//        ])
+//    }
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
@@ -122,7 +112,7 @@ class ProductCell: UITableViewCell {
             quantityLabel.leadingAnchor.constraint(equalTo: productNameLabel.leadingAnchor),
             quantityLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 4),
             quantityLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            //             Set up layout constraints for productPriceLabel
+            // Set up layout constraints for productPriceLabel
             productPriceLabel.leadingAnchor.constraint(equalTo: productNameLabel.leadingAnchor),
             productPriceLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Constants.padding)
         ])
@@ -139,19 +129,18 @@ class ProductCell: UITableViewCell {
     func configure(with cartItem: CartItem) {
         // Update the UI with the Product data
         product = cartItem.product
-        productImageView.image = ImageData.images[product!.images[0]]
+        productImageView.image = ImageData.productThumbnails[product!.images[0]]
         productNameLabel.text = cartItem.product.name
         quantityLabel.text = "x \(cartItem.quantity)"
         productPriceLabel.text = "$\(String(format: "%.2f", Double(cartItem.price.unitAmount!)/100.0))"
     }
     
-    func configure(with product: Product, price: Price) {
+    func configure(with product: Product, price: Price, image: UIImage) {
         // Update the UI with the Product data
         self.product = product
-        productImageView.image = ImageData.images[product.images[0]]
+        productImageView.image = image
         productNameLabel.text = product.name
         productPriceLabel.text = "$\(String(format: "%.2f", Double(price.unitAmount!)/100.0))"
-//        setupAddToCart()
     }
     
 }
